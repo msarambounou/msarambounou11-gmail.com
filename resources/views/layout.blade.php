@@ -16,6 +16,9 @@ footer {
 }
 footer a:hover{
     color : red;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 
 }
 </style>
@@ -67,15 +70,7 @@ footer a:hover{
                 @yield('contenu')
             </div>
     </body>
-    
 
-    <footer>
-        <div class="content has-text-centered">
-            <p>
-            <strong class="stg" style="color : white;">MyParking</strong> 
-            </p>
-        </div>
-    </footer>
 
 
     

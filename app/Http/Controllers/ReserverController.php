@@ -21,23 +21,27 @@ class ReserverController extends Controller
 
         //BDD
         //INSERT TO HISTORIQUE
+        
         $historiques =  \App\historiques_reservation::create([
             'id_clients' => auth()->user()->id,
         ]);
 
+        //BDD
+        //INSERT TO PLACE
+        $dispo = \App\places::table('places')->select('dispo')->get();
+        if($dispo == null){
 
+            $place =  \App\places::dispo([
+                'id_clients' => auth()->user()->id,
+                'dispo' => 1,
+            ]);
+        }
 
         flash("Votre réservation a été pris en compte")->success();
         return redirect('/compte-users');
+
     }
 
-    public function attribution(){
-        
-            $attribution = \App\places::create([
-                
-          
-                
 
-        ]);
-    }
+  
 }
