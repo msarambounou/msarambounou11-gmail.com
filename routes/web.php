@@ -63,27 +63,17 @@ Route::post('/modifier-mdp', 'Modifier_mdpController@update_mdp');
 
     Route::get('/confidentialite', 'ConfidController@formulaire');
 
-    //------NOM 
-    Route::get('/modifier-nom', 'Modifier_nomController@formulaire');
-    Route::post('/modifier-nom', 'Modifier_nomController@update_mdp');
-
-    //------PRENOM 
-    Route::get('/modifier-prenom', 'Modifier_prenomController@formulaire');
-    Route::post('/modifier-prenom', 'Modifier_prenomController@update_mdp');
-
-
-    //------EMAIL 
-    Route::get('/modifier-email', 'Modifier_emailController@formulaire');
-    Route::post('/modifier-email', 'Modifier_emailController@update_mdp');
-
 
 //----------------  PAGE USERS ------------------------------------------
     //------ RESERVER 
     Route::get('/reserver', 'ReserverController@formulaire');
     Route::post('/reserver', 'ReserverController@traitement');
 
-    //------ CONSULTER RANG---------------
+    //------ CONSULTER RANG LISTE ATTENTE ---------------
     Route::get('/consulter-rang', 'ConsulterController@formulaire');
 
     //------ CONSULTER HISTORIQUE ------------
     Route::get('/consulter-historique-users', 'ConsulterController@formulaire_historique');
+
+    //------ CONSULETR NUMERO DE PLACE --------------
+    Route::get('/consulter-numero-place', 'ConsulterController@numero_place');
