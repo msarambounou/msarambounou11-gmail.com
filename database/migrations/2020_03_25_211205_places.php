@@ -1,34 +1,41 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Http\Controllers;
 
-class Places extends Migration
+use Illuminate\Http\Request;
+
+class ReserverController extends Controller
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('places', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('libelle');
-            $table->unsignedBigInteger('id_demandes');
-            $table->foreign('id_demandes')->references('id')->on('demandes');
-            $table->timestamps();
-        });
+    public function formulaire(){
+        return view('reserver');
+        
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('places');
+    public function traitement(){
+      
+        //BDD
+        //INSERT TO DEMANDES
+        $demande =  \App\demandes::create([
+            'id_clients' => auth()->user()->id,
+        ]);
+
+        //BDD
+        //INSERT TO HISTORIQUE
+        
+        $historiques =  \App\historiques_reservation::create([
+            'id_clients' => auth()->user()->id,
+        ]);
+
+        //BDD
+        //INSERT TO PLACE
+        \App\places::where('dispo', NULL)
+        ->update(['id_clients' => auth()->user()->id]);
+    
+        flash("Votre réservation a été pris en compte")->success();
+        return redirect('/compte-users');
+
     }
+
+
+  
 }
