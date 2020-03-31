@@ -10,6 +10,6 @@ class demandes extends Model
 
     public function client()
     {
-        return $this->hasOne(client::class);
+        return $this->hasMany('App\clients', 'App\demandes');
     }
 }
