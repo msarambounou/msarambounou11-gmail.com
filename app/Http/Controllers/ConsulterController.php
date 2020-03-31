@@ -21,5 +21,13 @@ class ConsulterController extends Controller
             'historiques' => $historiques,
         ]);
     }
+
+    public function numero_place(){
+        $num_places = \App\places::where('id_clients', auth()->user()->id)->get();
+        return view('consulter-numero-place', [
+            'places' => $num_places,
+        ]);
+    }
+
     
 }
