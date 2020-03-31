@@ -27,7 +27,8 @@ class client extends Model implements Authenticatable
     //---- Relation entre CLIENT et DEMANDE ------------------
     public function demande()
     {
-        return $this->hasMany(demande::class);
+        return $this->hasOne('App\demandes', 'App\clients');
+        
     }
 
 
