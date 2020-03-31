@@ -59,7 +59,7 @@ td{
             </td>
 
             <td>
-                <a href="#"><button class="button is-large">
+                <a href="consulter-numero-place"><button class="button is-large">
                     <span class="icon is-medium">
                     <i class="fa fa-eye"></i>
                     </span>
